@@ -12,6 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1><%
+         int num1=20;
+        int num2=30;
+        int test=num1*num2;
+        out.print(test);
+        %></h1>
     </body>
 </html>
