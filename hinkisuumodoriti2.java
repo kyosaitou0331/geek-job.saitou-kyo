@@ -15,21 +15,21 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author owner
  */
-public class insuu2 extends HttpServlet {
-    
- void data(int num,int num1,boolean in,PrintWriter pw){
-     
-    int result=num*num1;
-    
-    if(in==true){
-        pw.print(result*result);
-    }else{
-        pw.print(result);
-    }
- } 
-void data(PrintWriter pw){
-    data(5,3,false,pw);
-    
+public class hinkisuumodoriti2 extends HttpServlet {
+
+String[] result(String I) {   
+String[] data={"12345","2月12日","北海道"};    
+String[] data1={"12346","3月9日",null};
+String[] data2={"12347","8月21日","山梨"};
+String data3 [][]={data,data1,data2};
+if (data[0].equals(I))
+       return data;
+if (data1[0].equals(I))
+       return data1;
+if (data2[0].equals(I))
+       return data2;
+
+return null;
 }
 
     /**
@@ -46,11 +46,16 @@ void data(PrintWriter pw){
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-     
-            data(4,5,true,out);     
-           data(4,5,false,out);   
-        }
-    }
+            String I="12346";
+            String[] arr= result(I);  
+                
+                for (int i=0;i<arr.length;i++){
+                    if(arr[i]==null){
+                        continue;
+                    }
+                    out.print(arr[i]);
+                }
+        }}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
