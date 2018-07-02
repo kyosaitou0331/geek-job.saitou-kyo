@@ -43,6 +43,8 @@ public class DBsousa8 extends HttpServlet {
                   
                   db_st=db_co.prepareStatement("select * from profiles where like '%?%' ");
                   db_st.setString(1,request.getParameter("to"));
+                  db_st=db_co.prepareStatement("select * from profiles where name like ? ");
+                  db_st.setString(1,"%"+request.getParameter("to")+"%");
                   db_data=db_st.executeQuery();
                   while(db_data.next()){
                    out.print("ID：" + db_data.getInt("profilesID") + "<br>");
